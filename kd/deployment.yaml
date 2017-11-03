@@ -88,9 +88,14 @@ spec:
             value: /etc/nginx/secrets/pttg-ip-audit-key.pem
           - name: ADD_NGINX_SERVER_CFG
             value: 'gzip off;'
+          - name: BASIC_AUTH
+            value: /etc/nginx/service-secrets/.htpasswd_1
         volumeMounts:
           - name: secrets
             mountPath: /etc/nginx/secrets
+            readOnly: true
+          - name: service-secrets
+            mountPath: /etc/nginx/service-secrets
             readOnly: true
         ports:
           - name: https
@@ -176,3 +181,9 @@ spec:
       - name: secrets
         emptyDir:
           medium: "Memory"
+      - name: service-secrets
+        secret:
+          secretName: pttg-audit-service-secrets
+          items:
+          - key: .htpasswd_1
+            path: .htpasswd_1
