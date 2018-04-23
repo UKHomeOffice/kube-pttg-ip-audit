@@ -24,7 +24,7 @@ spec:
       imagePullSecrets:
         - name: registrykey
       initContainers:
-       - name: truststore
+        - name: truststore
           image: quay.io/ukhomeofficedigital/cfssl-sidekick-jks:latest
           securityContext:
             runAsNonRoot: true
