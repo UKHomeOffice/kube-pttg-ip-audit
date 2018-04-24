@@ -215,6 +215,9 @@ spec:
         - name: keystore
           emptyDir:
             medium: "Memory"
+        - name: keys
+          emptyDir:
+            medium: "Memory"
         - name: certs
           emptyDir:
             medium: "Memory"
