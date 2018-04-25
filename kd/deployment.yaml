@@ -35,7 +35,7 @@ spec:
           args:
             - --certs=/certs
             - --command=/usr/bin/create-keystore.sh
-            - --domain=${KUBE_NAMESPACE}.svc.cluster.local
+            - --domain=pttg-ip-audit.${KUBE_NAMESPACE}.svc.cluster.local
             - --domain=localhost
             - --onetime=true
           env:
@@ -62,7 +62,7 @@ spec:
                 - SETGID
           args:
             - --certs=/certs
-            - --domain=${KUBE_NAMESPACE}.svc.cluster.local
+            - --domain=pttg-ip-audit.${KUBE_NAMESPACE}.svc.cluster.local
             - --expiry=8760h
             - --command=/usr/local/scripts/trigger_nginx_reload.sh
           env:
@@ -137,7 +137,7 @@ spec:
                 - SETGID
           env:
             - name: JAVA_OPTS
-              value: '-Xms150m -Xmx250m -Djavax.net.ssl.keyStore=/etc/keystore/keystore.jks'
+              value: '-Xms150m -Xmx250m'
             - name: SERVER_PORT
               value: '8080'
             - name: ENDPOINTS_INFO_ENABLED
