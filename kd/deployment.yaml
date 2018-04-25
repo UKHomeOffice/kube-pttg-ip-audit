@@ -34,7 +34,6 @@ spec:
                 - SETGID
           args:
             - --certs=/certs
-            - --command=/usr/bin/create-keystore.sh
             - --domain=pttg-ip-audit.${KUBE_NAMESPACE}.svc.cluster.local
             - --domain=localhost
             - --onetime=true
@@ -53,7 +52,7 @@ spec:
             readOnly: true
       containers:
         - name: certs
-          image: quay.io/ukhomeofficedigital/pttg-cfssl-sidekick:build-6
+          image: quay.io/ukhomeofficedigital/cfssl-sidekick-jks:latest
           securityContext:
             runAsNonRoot: true
             capabilities:
