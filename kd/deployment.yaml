@@ -173,6 +173,10 @@ spec:
                 secretKeyRef:
                   name: db-secrets
                   key: application_password
+            - name: AUDITING_DEPLOYMENT_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
           resources:
             limits:
               cpu: 1600m
