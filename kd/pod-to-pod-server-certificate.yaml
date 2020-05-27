@@ -11,6 +11,8 @@ spec:
     name: platform-ca
     kind: ClusterIssuer
   commonName: {{ .DEPLOYMENT_NAME }}.{{ .KUBE_NAMESPACE }}.svc.cluster.local
+  organization:
+    - Homeoffice
   dnsNames:
     - {{ .DEPLOYMENT_NAME }}
     - {{ .DEPLOYMENT_NAME }}.{{ .KUBE_NAMESPACE }}.svc

@@ -161,6 +161,7 @@ spec:
             - name: keystore
               mountPath: /etc/keystore
               readOnly: true
+
       volumes:
         - name: keystore
           emptyDir:
@@ -168,9 +169,6 @@ spec:
         - name: certs
           secret:
             secretName: {{ .DEPLOYMENT_NAME }}-service-tls-cmio
-        - name: bundle
-          configMap:
-            name: bundle
         - name: secrets
           emptyDir:
             medium: "Memory"
