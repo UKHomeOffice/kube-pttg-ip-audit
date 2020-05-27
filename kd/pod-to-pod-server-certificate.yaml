@@ -13,6 +13,16 @@ spec:
   commonName: {{ .DEPLOYMENT_NAME }}.{{ .KUBE_NAMESPACE }}.svc.cluster.local
   organization:
     - Homeoffice
+  subject:
+    countries:
+      - UK
+    provinces:
+      - London
+    localities:
+      - London
+    organizationalUnits:
+      - Homeoffice
+      - ACP NotProd
   dnsNames:
     - {{ .DEPLOYMENT_NAME }}
     - {{ .DEPLOYMENT_NAME }}.{{ .KUBE_NAMESPACE }}.svc
