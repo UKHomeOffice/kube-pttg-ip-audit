@@ -10,18 +10,6 @@ spec:
   issuerRef:
     name: platform-ca
     kind: ClusterIssuer
-  organization:
-    - Homeoffice
-  subject:
-    countries:
-      - UK
-    provinces:
-      - London
-    localities:
-      - London
-    organizationalUnits:
-      - Homeoffice
-      - ACP NotProd
   dnsNames:
     - {{ .DEPLOYMENT_NAME }}.{{ .KUBE_NAMESPACE }}.svc.cluster.local
     - {{ .DEPLOYMENT_NAME }}
